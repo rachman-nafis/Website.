@@ -1,70 +1,125 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;1,900&display=swap');
-*{
-    font-family: 'Poppins',cursive;
+/* General Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-body{
-    color: azure;
-    width: 100%;
-    height: 100vh;
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    background-color: black;
-}
-.greetings{
-    font-size: 6rem;
-    font-weight: 900;
-}
-.greetings > span{
-    animation: glow 2.5s ease-in-out infinite;
-}
-@keyframes glow{
-    0%, 100%{
-        color: #fff;
-        text-shadow: 0 0 12px #39c6d6, 0 0 50px #39c6d6, 0 0 100px #39c6d6;
-    }
-    10%, 90%{
-        color: #111;
-        text-shadow: none;
-    }
-}
-.greetings > span:nth-child(2){
-    animation-delay: .2s ;
-}
-.greetings > span:nth-child(3){
-    animation-delay: .4s ;
-}
-.greetings > span:nth-child(4){
-    animation-delay: .6s;
-}
-.greetings > span:nth-child(5){
-    animation-delay: .8s;
+    padding: 1rem 1.5rem;
+    background-color: #333;
+    color: white;
 }
 
-.description{
+.nav-branding {
     font-size: 1.5rem;
-    margin-bottom: 20px;
-}
-
-.button a{
+    color: white;
     text-decoration: none;
-    font-size: 1rem;
-    color: #111;
 }
 
-@media screen and (max-width:574px){
-    .greetings{
-        display: block;
-        font-size: 3rem;
-        font-weight: 500;
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: #ddd;
+}
+
+.hamburger {
+    display: none; /* Sembunyikan di desktop */
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: white;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+    background-color: #f4f4f4;
+}
+
+.cta-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* Product Gallery */
+.product-gallery {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.product-card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    text-align: center;
+}
+
+.product-card img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+/* Responsive Design */
+@media(max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 60px; /* Tinggi navbar */
+        flex-direction: column;
+        background-color: #333;
+        width: 100%;
         text-align: center;
+        transition: 0.3s;
     }
-    .description{
-        font-size: 1rem;
+
+    .nav-menu.active {
+        left: 0;
     }
-    
-    .button a{
-        font-size: .5rem;
+
+    .nav-item {
+        padding: 1rem 0;
+    }
+
+    .hamburger {
+        display: block; /* Tampilkan di mobile */
     }
 }
